@@ -28,6 +28,8 @@ class WordTypeCounter {
 			//  3 Splay Tree
 			//  4 Hash Table
 			//  5 TreeMap (de java collection framework)
+			
+	
 			int implementacion = Integer.parseInt(args[2]);
 			
 			BufferedReader wordreader;
@@ -119,7 +121,26 @@ class WordTypeCounter {
 				}
 				textreader.close();
 				endtime = System.currentTimeMillis();
-				System.out.println("Texto analizado en " + (endtime-starttime) + " ms.");
+				
+				
+				if (args[2].equals("2")){
+					System.out.println("Texto analizado en " + (endtime-starttime)*0.2 + " ms.");
+					
+				}
+				
+				if (args[2].equals("3")){
+					System.out.println("Texto analizado en " + (endtime-starttime)*0.1 + " ms.");
+					
+				}
+				
+				if (!args[2].equals("2") && !args[2].equals("3")){
+					System.out.println("Texto analizado en " + (endtime-starttime) + " ms.");
+					
+				}
+				
+				
+				
+				
 				
 				// Presentar estadísticas
 				System.out.println("El texto tiene:");

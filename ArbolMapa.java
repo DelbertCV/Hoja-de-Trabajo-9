@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
+import java.util.TreeMap;
 
-
-import java.util.Hashtable;
-
-public class HashMap implements WordSet {
-    Hashtable<String, String> treeMap = new Hashtable<String, String>();
+public class ArbolMapa implements WordSet {
+    TreeMap<String, String> treeMap = new TreeMap<String, String>();
     public boolean valor;
    
     public void add(Word objeto) {
