@@ -1,0 +1,113 @@
+/**
+ * 
+ * Jonathan Aguirre, 14349
+ * Yosemite Melendez, 14413
+ * Delbert Custodio, 14246
+ * 
+ * 
+ * Obtenido en Internet por medio de Google Search buscando
+ * "NombreDeLaClase".java seguida de "Duane Bailey".
+ * 
+ *  
+ * Propiedad del autor Duane A. Bailey
+ * 
+ */
+
+import java.util.Collection;
+import java.util.Iterator;
+
+public abstract class AbstractStructure<E> implements Structure<E>
+{
+    /**
+     * The default constructor.  Initializes any internal variables.
+     *
+     * @post initializes internal variables
+     */
+    public AbstractStructure()
+    {
+    }
+
+    /**
+     * Determine if there are elements within the structure.
+     *
+     * @post return true iff the structure is empty
+     * @return true if the structure is empty; false otherwise
+     */
+    public boolean isEmpty()
+    {
+        return size() == 0;
+    }
+
+    /**
+     * Return an enumeration associated with this structure.
+     * This implementation returns an AbstractIterator which supports
+     * both enumeration at iterator techniques.
+     *
+     * @pre this implementation assumes the structure returns an
+     *      AbstractIterator, which may then be used for generating the
+     *      Enumeration.
+     * @post return an enumeration for traversing the struture;
+     *       all <code>structure</code> package implementations return
+     *       an <code>AbstractIterator</code>
+     * @return a Enumeration for traversing the structure
+     * @see AbstractIterator
+     * @see java.util.Iterator
+     * @see java.util.Enumeration
+     */
+    public java.util.Enumeration<E> elements()
+    {
+        return (AbstractIterator<E>)iterator();
+    }
+
+    /**
+     * Determines if the structure contains a value.
+     *
+     * @param value non-null value to be found within structure
+     * @pre value is non-null
+     * @post returns true iff value.equals some value in structure
+     * @return true when some value equals value
+     */
+    public boolean contains(E value)
+    {
+        Iterator<E> i = iterator();
+        while (i.hasNext())
+        {
+            if (i.next().equals(value)) return true;
+        }
+        return false;
+    }
+
+    /**
+     * @post generate a hashcode for the structure: sum of
+     * all the hash codes of elements
+     */
+    public int hashCode()
+    {
+        Iterator<E> i = iterator();
+        int result = 0;
+        while (i.hasNext())
+        {
+            E o = i.next();
+            result = result * 31;
+            if (o != null) result += o.hashCode();
+        }
+        return result;
+    }
+
+    /**
+     * Returns a java.util.Collection wrapping this structure.
+     * This particular implementation returns a <code>StructCollection</code>
+     * whose methods may not provide the most efficent implementations
+     * of non-<code>Structure</code> <code>Collection</code> methods.
+     *
+     * @post returns a <code>Collection</code> that may be used with
+     *       Java's Collection Framework
+     * @return a Collection that is equivalent to this structure
+     * @see structure.StructCollection
+     * @see java.util.Collection
+     */
+    /*public Collection<E> values()
+    {
+        return new StructCollection<E>(this);
+    }*/
+}
