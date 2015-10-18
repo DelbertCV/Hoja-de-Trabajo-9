@@ -6,10 +6,9 @@ public class SplayTree2Test {
 
 	@Test
 	public void test() {
-		SplayTree2 splay = new SplayTree2();
+		SplayTree arbol = new SplayTree();
 		Word a = new Word();
-		splay.add(a);
-		splay.get(a);
+		arbol.add(a); arbol.get(a);
 	}
 
 }
